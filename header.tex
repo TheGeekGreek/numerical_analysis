@@ -1,0 +1,158 @@
+%Author:
+%------
+%Yannis Baehni at University of Zurich
+%baehni.yannis@uzh.ch
+%
+%Version log:
+%-----------
+%06/02/16 . Basic structure
+
+%Page Setup
+\documentclass[
+	10pt, 
+	oneside, 
+	a4paper, 
+	footsepline
+]{amsbook}
+
+\usepackage[
+	left = 3cm, 
+	right = 3cm, 
+	top = 3cm, 
+	bottom = 3cm
+]{geometry}
+
+%Manipulation of headers and footers
+%\usepackage{fancyhdr}
+%	\pagestyle{fancy}
+	%Clear fields
+%	\fancyhf{}
+	%Header
+%	\fancyhead[R]{
+%		\footnotesize
+%		Yannis B\"ahni\\
+%		\href{mailto:yannis.baehni@uzh.ch}{yannis.baehni@uzh.ch}
+%	}
+%	\fancyhead[L]{
+%		\footnotesize
+%		MAT694 Seminar: Introduction to Harmonic Analysis\\
+%		HS16
+%	}
+	%Page numbering in footer
+%	\fancyfoot[C]{\thepage}
+	%Separation line header and footer
+%	\renewcommand{\headrulewidth}{0.4pt}
+%	\renewcommand{\footrulewidth}{0.4pt}
+
+%Font settings
+\usepackage{anyfontsize}
+
+%Footnote settings
+\usepackage{footmisc}
+%	\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+%Further math environments
+\usepackage{amsmath}
+%Further math fonts (loads amsfonts implicitely)
+\usepackage{amssymb}
+%Redefinition of \text
+\usepackage{amstext}
+%Polynomial division
+\usepackage{polynom}
+
+%Graphics
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{afterpage}
+%Frames
+\usepackage{mdframed}
+%\makeatletter
+%\ifcase \@ptsize \relax% 10pt
+%  \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 5/6
+%\fi
+%\makeatother
+ 
+\usepackage{hhline}
+%\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{xfrac} 
+\DeclareMathSizes{10}{10}{7}{6}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+%\everymath{\displaystyle}
+\newcommand{\Space}{\vspace{2mm}}
+%Enumerate
+\usepackage{enumitem} 
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\ast$}
+\renewcommand{\labelitemiii}{$\cdot$}
+\renewcommand{\labelitemiv}{$\circ$}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep = 2pt](char){#1};}}
+%Colors
+\usepackage[dvipsnames]{xcolor}
+\usepackage[cmtip, all]{xy}
+%Theorems
+\usepackage{amsthm}
+\newtheoremstyle{bold}              	 % Name
+  {}                                     % Space above
+  {}                                     % Space below
+  {\itshape}                             % Body font
+  {}                                     % Indent amount
+  {\bfseries}                            % Theorem head font
+  {.}                                    % Punctuation after theorem head
+  { }                                    % Space after theorem head, ' ', or \newline
+  {} 
+\theoremstyle{bold}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{Proof}{Proof}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{properties}{Properties}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+%German non-ASCII-Characters
+%\usepackage[utf8]{inputenc}
+%Graphics-Tool
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{bbm}
+\usetikzlibrary{calc,fadings,decorations.pathreplacing}
+\usepackage{verbatim}
+\usepackage{amssymb}
+\usepackage{array}
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\usetikzlibrary{arrows, matrix}
+%\usepackage{bera}
+%Listing-Setup
+\usepackage{relsize}
+%Titlepage Command
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%Bibliographie
+\usepackage[backend=bibtex, style=alphabetic]{biblatex}
+%\usepackage[babel, german = swiss]{csquotes}
+\bibliography{Bibliography}
+%PDF-Linking
+%\usepackage[bookmarksopen=true,bookmarksnumbered=true]{hyperref}
+%Index
+\usepackage{index}
+\usepackage{idxlayout}
+\makeindex
+\usepackage{tikz-uml}
+
+%Source code listings
+\usepackage{minted}
+	\usemintedstyle{friendly}
+	\newmintedfile[m]{matlab}{
+		linenos = true,
+		tabsize = 4,
+		funcnamehighlighting = true,
+		frame = single,
+		framesep = 10pt
+	}

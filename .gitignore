@@ -1,0 +1,13 @@
+.DS*
+*.aux
+*.idx
+*.log
+*.blg
+*.out
+*.run*
+*.pyg
+*.bbl
+*.ilg
+*.ind
+*.toc
+main-blx.bib

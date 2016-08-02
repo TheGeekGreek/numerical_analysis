@@ -1,0 +1,47 @@
+\input{header.tex}
+
+\begin{document}
+
+%titlepage
+\pagecolor{Dandelion}  
+\color{Black}
+
+\begin{titlepage}
+	\begin{center}
+	\fontsize{18}{18}{\textsc{Yannis B\"ahni}}
+	\rule{\linewidth}{0.5mm} \\[0.4cm]
+	\fontsize{80}{80}{\textsc{Numerical Analysis}}\\
+	\vspace{2mm}
+	\fontsize{28}{28}{\textsc{In Applications and Examples}}
+	\rule{\linewidth}{0.5mm} \\[1.5cm]
+	\end{center}
+\end{titlepage}
+
+%reset colors
+\pagecolor{white}
+\color{black} 
+
+%Roman page numbering
+\frontmatter
+
+%Half-Title Page
+\thispagestyle{empty}
+\begin{center}
+	\fontsize{18}{18}{\textsc{Yannis B\"ahni}}
+	\rule{\linewidth}{0.5mm} \\[0.4cm]
+	\fontsize{80}{80}{\textsc{Numerical Analysis}}\\
+	\vspace{2mm}
+	\fontsize{28}{28}{\textsc{In Applications and Examples}}
+	\rule{\linewidth}{0.5mm} \\[1.5cm]
+\end{center}
+\clearpage
+
+%\tableofcontents
+\mainmatter
+
+%ODEs
+\input{ODEs.tex}
+
+
+\printindex
+\end{document}

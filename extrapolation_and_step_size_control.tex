@@ -1,0 +1,40 @@
+\section{Extrapolation and Step Size Control}
+
+\subsection{The Implicit Trapezoidal Rule}
+The \index{implicit trapezoidal rule}\emph{implicit trapezoidal rule} is given by
+
+\begin{equation}
+	y_1 = y_0 + \frac{h}{2}\left( f(x_0,y_0) + f(x_1,y_1) \right)
+\end{equation}
+
+As one observes, the discretization $y_1$ of $y(x_1)$ is calculated implicitely. There are two simple approaches to handle this impliciteness. First of all, $y_1$ is a fixed point of the function
+
+\begin{equation}
+	\Phi(y;x_0,y_0,h) := y_0 + \frac{h}{2}\left( f(x_0,y_0) + f(x_0 + h,y) \right)
+\end{equation}
+
+Hence we may apply a simple \index{fixed point iteration}\emph{fixed point iteration} of the form
+
+\begin{equation}
+	y_1^{(k + 1)} = \Phi\left(y_1^{(k)};x_0,y_0,h\right) \qquad k = 0,1,2,\hdots
+\end{equation}
+
+until a certain tolerance or a user-specified maximal number of iterations is reached. An implementation of the fixed point iteration and the implicit trapezoidal rule can be found in listing \ref{lst:fixediter} and \ref{lst:ITR} respectively.
+
+\begin{listing}
+	\m{src/fixediter.m}
+	\caption{Fixed point iteration.}
+	\label{lst:fixediter}
+\end{listing}
+
+\begin{listing}
+	\m{src/ITR.m}
+	\caption{Implicit trapezoidal rule.}
+	\label{lst:ITR}
+\end{listing}
+
+The second approach would be applying the \index{Newton iteration}\emph{Newton iteration}
+
+\begin{equation}
+	y_1^{(k + 1)} = y_0^{(k)} - \left( D\Phi\left(y_1^{(k)};x_0,y_0,h\right)\right)^{-1}\Phi\left(y_1^{(k)};x_0,y_0,h\right) \qquad k = 0,1,2,\hdots
+\end{equation}
